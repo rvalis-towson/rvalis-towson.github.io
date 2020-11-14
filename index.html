@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(randy)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/blood.min.css" id="theme"/>
+
+<link href="https://pagecdn.io/lib/highlight/10.1.2/styles/dracula.min.css" rel="stylesheet" crossorigin="anonymous" >
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+  <h2>Intro to Mobile Development</h2>
+  <h4>Randy Valis</h4>
+  <h5>TigerHacks</h5>
+  <h5>November 2020</h5>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h3>Table of Contents</h3>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org54bf46a">Agenda</a></li>
+<li><a href="#/slide-org346e4e2">Tooling</a></li>
+<li><a href="#/slide-org53df7a8">Basics</a></li>
+<li><a href="#/slide-orge9d9bc5">The App</a></li>
+<li><a href="#/slide-examples">Code Examples</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org54bf46a">
+<h2 id="org54bf46a">Agenda</h2>
+<ul>
+<li>Android Tooling and setup</li>
+<li>Basic Components of an App</li>
+<li>Let's build an app!</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org346e4e2">
+<h2 id="org346e4e2">Tooling</h2>
+<div class="outline-text-2" id="text-org346e4e2">
+</div>
+</section>
+<section id="slide-orgb14a686">
+<h3 id="orgb14a686">Android Development</h3>
+<p>
+<a href="https://developer.android.com">https://developer.android.com</a>
+</p>
+</section>
+<section id="slide-org2632908">
+<h3 id="org2632908">Android Studio</h3>
+<p>
+<a href="https://developer.android.com/studio">https://developer.android.com/studio</a>
+</p>
+</section>
+<section id="slide-orgd1baf22">
+<h3 id="orgd1baf22">Emulator</h3>
+<p>
+<a href="https://developer.android.com/studio/run/managing-avds">https://developer.android.com/studio/run/managing-avds</a>
+</p>
+
+<p>
+Or use your own device
+</p>
+</section>
+<section id="slide-org0b94803">
+<h3 id="org0b94803">Write, build and run</h3>
+<ul>
+<li>Create a UI</li>
+<li>Write some code to handle events / grab some data</li>
+<li>Build the app (using gradle)</li>
+<li>Install on your device/emulator and run</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org53df7a8">
+<h2 id="org53df7a8">Basics</h2>
+<div class="outline-text-2" id="text-org53df7a8">
+</div>
+</section>
+<section id="slide-org04b12bf">
+<h3 id="org04b12bf"><a href="https://developer.android.com/guide/components/activities/intro-activities">Activities</a></h3>
+<ul>
+<li>Basically a "screen"</li>
+<li>Most of your code can go here (though not suggested)</li>
+<li>Loads and display a UI</li>
+<li>Hook up event handlers here</li>
+
+</ul>
+</section>
+<section id="slide-orge325414">
+<h3 id="orge325414"><a href="https://developer.android.com/guide/components/intents-filters">Intents</a></h3>
+<ul>
+<li>Mechanism to start other apps and send/receive data</li>
+
+</ul>
+</section>
+<section id="slide-orgff9a6d5">
+<h3 id="orgff9a6d5">Resources</h3>
+<ul>
+<li>located in the /res directory</li>
+<li>Layouts, images, other static data</li>
+<li>Bundled with your app</li>
+
+</ul>
+</section>
+<section id="slide-org4753664">
+<h3 id="org4753664"><a href="https://developer.android.com/guide/topics/ui/declaring-layout">UI</a></h3>
+<ul>
+<li>Declared in XML or the designer</li>
+<li><a href="https://developer.android.com/guide/topics/ui/layout/linear">LinearLayout</a> - displays children in horizontal or vertical order</li>
+<li><a href="https://developer.android.com/reference/kotlin/android/widget/TextView">TextView</a> - Displays text</li>
+<li><a href="https://developer.android.com/guide/topics/ui/layout/recyclerview">RecyclerView</a> - Displays a list of views</li>
+
+</ul>
+</section>
+<section id="slide-org9c29f3a">
+<h3 id="org9c29f3a">Folder Structure</h3>
+<p>
+Android relies on a very strictly defined folder structure.
+</p>
+<div class="org-src-container">
+
+<pre><code class="bash" >- /app
+  - /src
+    - /test -&gt; non-ui tests
+    - /androidTest -&gt; ui tests
+    - /main -&gt; app code
+      - /java -&gt; java code
+      - /res -&gt; resources
+      - AndroidManifest.xml -&gt; Describes your app to the system
+  - build.gradle -&gt; your app's build definition
+</code></pre>
+</div>
+</section>
+<section id="slide-org19df641">
+<h3 id="org19df641">Resources (/res)</h3>
+<div class="org-src-container">
+
+<pre><code class="bash" >/res
+   /layout -&gt; your layout files
+      activity_main.xml
+   /values -&gt; static values
+      /strings.xml (static strings for text to be displayed)
+      /colors.xml (colors used throughout your app)
+      ... others
+   /drawable -&gt; images and icons
+</code></pre>
+</div>
+</section>
+<section id="slide-orgde48f26">
+<h3 id="orgde48f26">Things I won't discuss</h3>
+<ul>
+<li>Lifecycle / rotation</li>
+<li>Multiple screens / activities</li>
+<li>Fragments</li>
+<li>Databases (SQLite)</li>
+<li>We won't be using these in our app</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orge9d9bc5">
+<h2 id="orge9d9bc5">The App</h2>
+<div class="outline-text-2" id="text-orge9d9bc5">
+</div>
+</section>
+<section id="slide-org143ce54">
+<h3 id="org143ce54">HNews</h3>
+<ul>
+<li>Hacker news article fetcher</li>
+<li>Displays the top 10 stories in a list</li>
+<li>User can click a story to open the link in a browser</li>
+<li>That's it!</li>
+
+</ul>
+</section>
+<section id="slide-orgc494de4">
+<h3 id="orgc494de4">For the brave</h3>
+<ul>
+<li>Try visually marking an item as "viewed"</li>
+<li>Change each row's UI to be prettier</li>
+<li>For the super brave, add a search bar to search the news</li>
+
+</ul>
+</section>
+<section id="slide-orga1b2d4f">
+<h3 id="orga1b2d4f">Components</h3>
+<ul>
+<li>One <a href="https://developer.android.com/guide/components/activities/intro-activities">activity</a> / screen. No rotation</li>
+<li><a href="https://developer.android.com/guide/topics/ui/layout/recyclerview">RecyclerView</a> to display the news</li>
+<li><a href="https://developer.android.com/guide/components/intents-common">Intent</a> to launch the browser link</li>
+<li><a href="https://square.github.io/okhttp">OkHttp</a>OkHttp to make the REST API request to fetch the data</li>
+
+</ul>
+</section>
+</section>
+<section id="slide-examples">
+<section id="code-examples">
+<h4>MainActivity</h4>
+<pre><code data-line-numbers="2,11|4|6-8|10">
+  override fun onCreate(savedInstanceState: Bundle?) {
+      super.onCreate(savedInstanceState)
+      setContentView(R.layout.activity_main)
+
+      val adapter = NewsAdapter(this)
+      recyclerView.adapter = adapter
+      recyclerView.layoutManager = LinearLayoutManager(this)
+
+      fetchNews()
+  }
+</code>
+</pre>
+</section>
+<section>
+<h4>RecyclerView.Adapter</h4>
+<pre><code data-line-numbers="3,13,17|4|5,10|6-9|18-21">
+  <script type="text/template">
+  class NewsAdapter(private val activity: MainActivity) : RecyclerView.Adapter<NewsViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.news_item_view, parent, false)
+        val holder = NewsViewHolder(view)
+        view.article_url.setOnClickListener {
+            val position = holder.adapterPosition
+            activity.showArticle(position)
+        }
+        return holder
+    }
+
+    override fun getItemCount(): Int {
+        return activity.newsCount()
+    }
+
+    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+        val newsItem = activity.newsItem(position)
+        holder.title.text = newsItem.title
+        holder.url.text = newsItem.url
+        holder.position.text = (position + 1).toString()
+    }
+  </script>
+</code>
+</pre>
+</section>
+<section>
+<h4>Coroutines</h4>
+<pre><code data-line-numbers="3,11|4|7-10">
+    fun fetchNews() {
+      scope.launch(Dispatchers.IO) {
+          val items = HackerNewsApi().fetchNews()
+          newsList.clear()
+          newsList.addAll(items.value)
+          withContext(Dispatchers.Main) {
+              recyclerView.adapter?.notifyDataSetChanged()
+              showListAndHideProgress()
+          }
+      }
+    }
+</code>
+</pre>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+plugins: [ RevealHighlight ],
+width: 1200,
+margin: 0
+});
+</script>
+</body>
+</html>
